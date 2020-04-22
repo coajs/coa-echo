@@ -1,0 +1,35 @@
+{
+  "name": "coa-echo",
+  "version": "1.0.5",
+  "description": "Lightweight console color logger for node.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "author": "Aex",
+  "homepage": "https://github.com/coajs/coa-echo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coajs/coa-echo.git"
+  },
+  "keywords": [
+    "coajs",
+    "coa",
+    "echo",
+    "console"
+  ],
+  "scripts": {
+    "dev": "tsc-watch",
+    "test": "node dist/test",
+    "clean": "rm -rf dist",
+    "build": "tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^13.13.2",
+    "tsc-watch": "^4.2.3",
+    "typescript": "^3.8.3"
+  }
+}
