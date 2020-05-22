@@ -1,1 +1,3 @@
-export { default as echo } from './lib/echo'
+import echo from './lib/echo'
+
+export { echo }
