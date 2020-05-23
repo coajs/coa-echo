@@ -1,3 +1,3 @@
-import echo from './lib/echo'
+import echo from './echo'
 
 export { echo }

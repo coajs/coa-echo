@@ -1,6 +1,6 @@
 import * as os from 'os'
 
-const hasColors = process.stdout.hasColors()
+const hasColors = process.stdout.hasColors && process.stdout.hasColors()
 
 const styles = {
 
