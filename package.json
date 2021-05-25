@@ -18,9 +18,9 @@
   "scripts": {
     "dev": "tsc -w",
     "test": "node dist/test",
-    "build": "rm -rf dist && tsc && cp package.json dist",
     "lint": "eslint .",
-    "prettier": "prettier -w ."
+    "prettier": "prettier -w .",
+    "build": "rm -rf dist && tsc && cp package.json dist"
   },
   "dependencies": {},
   "devDependencies": {

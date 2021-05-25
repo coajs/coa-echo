@@ -11,13 +11,13 @@ Lightweight console color logger for node.js
 
 Using npm
 
-``` shell script
+```shell script
 $ npm install coa-echo
 ```
 
 Using yarn
 
-``` shell script
+```shell script
 $ yarn add coa-echo
 ```
 
@@ -36,17 +36,24 @@ echo.green('green')
 echo.cyan('cyan')
 ```
 
-*Note: Typescript is highly recommended*
+_Note: Typescript is highly recommended_
 
 ## API
 
 ##### echo.log(message[,params])
+
 ##### echo.warn(message[,params])
+
 ##### echo.info(message[,params])
+
 ##### echo.error(message[,params])
+
 ##### echo.grey(message[,params])
+
 ##### echo.blue(message[,params])
+
 ##### echo.green(message[,params])
+
 ##### echo.cyan(message[,params])
 
 ## License

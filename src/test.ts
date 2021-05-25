@@ -1,6 +1,6 @@
 import { echo } from '.'
 
-function run () {
+function run() {
   echo.log('log black')
   echo.warn('warn yellow')
   echo.info('info magenta')

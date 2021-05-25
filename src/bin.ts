@@ -1,9 +1,8 @@
 import * as os from 'os'
 
-const hasColors = process.stdout.hasColors && process.stdout.hasColors()
+const hasColors = process.stdout.hasColors?.()
 
 const styles = {
-
   reset: [0, 0],
 
   bold: [1, 22],
@@ -61,29 +60,24 @@ const styles = {
   magentaBG: [45, 49],
   cyanBG: [46, 49],
   whiteBG: [47, 49],
-
 }
 
-export default new class {
-
+export default new (class {
   // stdout输出
-  stdoutWrite (color: keyof typeof styles, text: string) {
-
+  stdoutWrite(color: keyof typeof styles, text: string) {
     // 如果支持颜色，则添加颜色属性
-    if (hasColors)
-      text = this.warpColor(color, text)
+    if (hasColors) text = this.warpColor(color, text)
 
     // 输出
     process.stdout.write(text + os.EOL)
   }
 
   // 添加颜色
-  private warpColor (color: keyof typeof styles, text: string) {
-
+  warpColor(color: keyof typeof styles, text: string) {
     // 如果支持颜色，则包裹颜色标识
-    const style = styles[color] || styles['reset']
-    const open = '\u001b[' + style[0] + 'm'
-    const close = '\u001b[' + style[1] + 'm'
+    const style = styles[color] ?? styles.reset
+    const open = '\u001b[' + style[0].toString() + 'm'
+    const close = '\u001b[' + style[1].toString() + 'm'
     return open + text + close
   }
-}
+})()
