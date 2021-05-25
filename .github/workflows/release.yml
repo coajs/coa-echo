@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  publish-npm:
+    name: NPM Publish
+
+    if: github.repository_owner == 'coajs'
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org
+
+      - name: Yarn
+        run: |
+          yarn
+
+      - name: Lint
+        run: |
+          yarn lint
+
+      - name: Build
+        run: |
+          yarn version --no-git-tag-version --new-version ${{ github.event.release.tag_name }}
+          yarn build
+
+      - name: Publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.AEX_NPM_TOKEN }}
+        run: |
+          yarn publish dist
+
+      - name: Sync
+        run: |
+          sleep 5s
+          yarn sync
