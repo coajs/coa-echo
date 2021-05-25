@@ -20,7 +20,8 @@
     "test": "node dist/test",
     "lint": "eslint .",
     "prettier": "prettier -w .",
-    "build": "rm -rf dist && tsc && cp package.json dist"
+    "build": "rm -rf dist && tsc && cp package.json dist",
+    "sync": "curl -X PUT 'https://npm.taobao.org/sync/coa-echo?sync_upstream=true'"
   },
   "dependencies": {},
   "devDependencies": {
