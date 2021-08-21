@@ -62,22 +62,20 @@ const styles = {
   whiteBG: [47, 49],
 }
 
-export default new (class {
-  // stdout输出
-  stdoutWrite(color: keyof typeof styles, text: string) {
-    // 如果支持颜色，则添加颜色属性
-    if (hasColors) text = this.warpColor(color, text)
+// stdout输出
+export function write(color: keyof typeof styles | '', text: string) {
+  // 如果支持颜色，则添加颜色属性
+  if (hasColors && color !== '') text = warpColor(color, text)
 
-    // 输出
-    process.stdout.write(text + os.EOL)
-  }
+  // 输出
+  process.stdout.write(text + os.EOL)
+}
 
-  // 添加颜色
-  warpColor(color: keyof typeof styles, text: string) {
-    // 如果支持颜色，则包裹颜色标识
-    const style = styles[color] ?? styles.reset
-    const open = '\u001b[' + style[0].toString() + 'm'
-    const close = '\u001b[' + style[1].toString() + 'm'
-    return open + text + close
-  }
-})()
+// 添加颜色
+export function warpColor(color: keyof typeof styles, text: string) {
+  // 如果支持颜色，则包裹颜色标识
+  const style = styles[color] ?? styles.reset
+  const open = '\u001b[' + style[0].toString() + 'm'
+  const close = '\u001b[' + style[1].toString() + 'm'
+  return open + text + close
+}

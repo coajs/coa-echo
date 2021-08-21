@@ -1,7 +1,7 @@
-import { echo } from '.'
+import { echo } from '..'
 
 function run() {
-  echo.log('log black')
+  echo.log('log default')
   echo.warn('warn yellow')
   echo.info('info magenta')
   echo.error('error red')

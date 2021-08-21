@@ -1,3 +1,5 @@
-import echo from './echo'
+import { Echo } from './Echo'
 
-export { echo }
+const echo = new Echo()
+
+export { echo, Echo }
