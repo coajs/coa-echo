@@ -1,6 +1,6 @@
 import { echo } from '..'
 
-function run() {
+function run(): void {
   echo.log('log default')
   echo.warn('warn yellow')
   echo.info('info magenta')

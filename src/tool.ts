@@ -63,7 +63,7 @@ const styles = {
 }
 
 // stdout输出
-export function write(color: keyof typeof styles | '', text: string) {
+export function write(color: keyof typeof styles | '', text: string): void {
   // 如果支持颜色，则添加颜色属性
   if (hasColors && color !== '') text = warpColor(color, text)
 
@@ -72,7 +72,7 @@ export function write(color: keyof typeof styles | '', text: string) {
 }
 
 // 添加颜色
-export function warpColor(color: keyof typeof styles, text: string) {
+export function warpColor(color: keyof typeof styles, text: string): string {
   // 如果支持颜色，则包裹颜色标识
   const style = styles[color] ?? styles.reset
   const open = '\u001b[' + style[0].toString() + 'm'
